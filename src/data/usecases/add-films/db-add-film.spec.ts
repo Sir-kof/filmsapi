@@ -1,13 +1,13 @@
-import { FilmModel } from '../../../domain/models/FilmModel'
-import { IAddFilmRepository } from '../../protocols/db/Add-films-repository'
+import { FilmModel } from '../../../domain/models/Film'
+import { IAddFilmRepository } from '../../protocols/db/add-films-repository'
 import axios from 'axios'
 import { DbAddFilm } from './db-add-films'
 
 const makeAddFilm = (): IAddFilmRepository => {
   class AddFilmStub implements IAddFilmRepository {
-    async add (film: any): Promise<FilmModel> {
+    async add (film: any): Promise<void> {
       const { title, original_title, description, release_date, rt_score } = film
-      return await new Promise(resolve => resolve({
+      await new Promise(resolve => resolve({
         title,
         original_title,
         description,
