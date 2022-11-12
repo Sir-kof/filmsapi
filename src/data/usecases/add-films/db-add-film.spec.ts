@@ -2,6 +2,7 @@ import { FilmModel } from '../../../domain/models/Film'
 import { IAddFilmRepository } from '../../protocols/db/add-films-repository'
 import axios from 'axios'
 import { DbAddFilm } from './db-add-films'
+import env from '../../../main/config/env'
 
 const makeAddFilm = (): IAddFilmRepository => {
   class AddFilmStub implements IAddFilmRepository {
@@ -43,7 +44,7 @@ const makeSut = (): SutTypes => {
 
 describe('DbAddFilm Usecase', () => {
   test('Should return film with correct values specified', async () => {
-    const res = await axios.get('https://ghibliapi.herokuapp.com/films?limit=200')
+    const res = await axios.get(env.urlSearchFilms)
     expect(res.data.map((item: { hasOwnProperty: (arg0: string) => any }) => item.hasOwnProperty('title'))).toBeTruthy()
     expect(res.data.map((item: { hasOwnProperty: (arg0: string) => any }) => item.hasOwnProperty('original_title'))).toBeTruthy()
     expect(res.data.map((item: { hasOwnProperty: (arg0: string) => any }) => item.hasOwnProperty('description'))).toBeTruthy()

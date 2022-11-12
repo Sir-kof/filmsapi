@@ -19,7 +19,7 @@ export const Film = database.define('Film', {
     unique: true
   },
   description: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(1234),
     allowNull: false
   },
   release_date: {
