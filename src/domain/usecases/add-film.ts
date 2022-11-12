@@ -1,5 +1,3 @@
-import { FilmModel } from '../models/FilmModel'
-
 export interface IAddFilm {
-  add: (film: object) => Promise<FilmModel>
+  add: (film: object) => Promise<void>
 }
