@@ -1,7 +1,7 @@
 export interface FilmModel {
   title: string
-  originalTitle: string
+  original_title: string
   description: string
-  releaseDate: string
-  rtScore: string
+  release_date: string
+  rt_score: string
 }

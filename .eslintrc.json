@@ -5,6 +5,8 @@
   },
   "rules": {
     "@typescript-eslint/space-before-blocks": "off",
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/restrict-template-expressions": "off"
   }
 }

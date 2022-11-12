@@ -8,9 +8,9 @@ export class DbAddFilm implements IAddFilm {
   ) {}
 
   async add (film: any): Promise<FilmModel> {
-    const { title, originalTitle, description, releaseDate, rtScore } = film
+    const { title, original_title, description, release_date, rt_score } = film
     const filmAdded = await this.addFilmRepository.add({
-      title, originalTitle, description, releaseDate, rtScore
+      title, original_title, description, release_date, rt_score
     })
     console.log(filmAdded)
     return filmAdded

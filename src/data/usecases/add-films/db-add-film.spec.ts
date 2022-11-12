@@ -6,13 +6,13 @@ import { DbAddFilm } from './db-add-films'
 const makeAddFilm = (): IAddFilmRepository => {
   class AddFilmStub implements IAddFilmRepository {
     async add (film: any): Promise<FilmModel> {
-      const { title, originalTitle, description, releaseDate, rtScore } = film
+      const { title, original_title, description, release_date, rt_score } = film
       return await new Promise(resolve => resolve({
         title,
-        originalTitle,
+        original_title,
         description,
-        releaseDate,
-        rtScore
+        release_date,
+        rt_score
       }))
     }
   }
@@ -21,10 +21,10 @@ const makeAddFilm = (): IAddFilmRepository => {
 
 const makeFakeFilm = (): FilmModel => ({
   title: 'valid_title',
-  originalTitle: 'valid_original_title',
+  original_title: 'valid_original_title',
   description: 'valid_description',
-  releaseDate: 'valid_date',
-  rtScore: 'valid_score'
+  release_date: 'valid_date',
+  rt_score: 'valid_score'
 })
 
 interface SutTypes {
@@ -57,16 +57,10 @@ describe('DbAddFilm Usecase', () => {
     await sut.add(makeFakeFilm())
     expect(addSpy).toHaveBeenCalledWith({
       title: 'valid_title',
-      originalTitle: 'valid_original_title',
+      original_title: 'valid_original_title',
       description: 'valid_description',
-      releaseDate: 'valid_date',
-      rtScore: 'valid_score'
+      release_date: 'valid_date',
+      rt_score: 'valid_score'
     })
   })
 })
-
-// implementação para o db
-// fetch('https://ghibliapi.herokuapp.com/films?limit=200', {
-//   method: 'Add',
-//   headers: { 'Content-Type': 'applicationjson' }
-// })
