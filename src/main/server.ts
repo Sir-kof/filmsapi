@@ -1,4 +1,5 @@
 import { database } from '../infra/db/mysql/db'
+import { addFilmsDb } from '../infra/db/mysql/helpers/mysql-helper'
 import { Film as film } from '../infra/db/mysql/models'
 import env from './config/env'
 
@@ -9,6 +10,7 @@ void (async () => {
 
   try {
     await db.sync()
+    await addFilmsDb(env.urlSearchFilms)
   } catch (error) {
     console.log(error)
   }
