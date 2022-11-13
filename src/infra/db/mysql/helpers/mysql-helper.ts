@@ -34,22 +34,22 @@ export const MysqlHelper = {
   },
 
   async getFilms (): Promise<any> {
-    const films = await Film.findAll()
+    const films = await Film.findAll({ order: [['release_date', 'ASC']] })
     return films
   },
 
   async getFilmsLimit (limit: any): Promise<any> {
-    const films = await Film.findAll({ limit })
+    const films = await Film.findAll({ limit, order: [['release_date', 'ASC']] })
     return films
   },
 
   async getFilmsOffset (offset: any): Promise<any> {
-    const films = await Film.findAll({ offset })
+    const films = await Film.findAll({ offset, order: [['release_date', 'ASC']] })
     return films
   },
 
   async getFilmsLimitAndOffset (offset: any, limit: any): Promise<any> {
-    const films = await Film.findAll({ offset, limit })
+    const films = await Film.findAll({ offset, limit, order: [['release_date', 'ASC']] })
     return films
   }
 }
